@@ -1,14 +1,6 @@
 #include "shell.h"
 #include "strings.h"
-int _strcmp(char *s1, char *s2)
-{
-	while (*s1 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return ((int)(unsigned char)(*s1) - (int)(unsigned char)(*s2));
-}
+int _strcmp(char *s1, char *s2);
 
 char *builtin_cmd[] = {
 	"cd",
@@ -72,7 +64,7 @@ int lsh_execute(char **args)
 
 	for (i = 0; i < lsh_num_builtins(); i++)
 	{
-		if (_strcmp(args[0], builtin_cmd[i]) == 0)
+		if (strcmp(args[0], builtin_cmd[i]) == 0)
 		{
 			return ((*builtin_func[i])(args));
 		}
