@@ -1,0 +1,6 @@
+Concerns when handling the exit commnad:
+
+Q: Will this function be required to free anything that had been malloc'd yet
+not freed yet? If so, how will this be handled.
+
+A1:
