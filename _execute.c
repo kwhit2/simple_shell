@@ -37,8 +37,8 @@ int lsh_help(char **args)
 {
 	int i;
 
-	my_puts("Finn Aspenson and Kyle Whitten's simple shell\n");
-	my_puts("Type command names and arguments, then hit enter\n");
+	my_puts("Finn Aspenson and Kyle Whitten's simple shell");
+	my_puts("Type command names and arguments, then hit enter");
 	my_puts("The following commands have been built in:\n");
 	for (i = 0; i < lsh_num_builtins(); i++)
 		printf(" %s\n", builtin_cmd[i]);

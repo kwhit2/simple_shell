@@ -72,12 +72,12 @@ int lsh_launch(char **args)
 	if (pid == 0)
 	{
 		if (execvp(args[0], args) == -1)
-			perror("_launch");
+			perror("simple_shell");
 		exit(EXIT_FAILURE);
 	}
 	else if (pid < 0)
 	{
-	perror("_launch");
+		perror("simple_shell");
 	}
 	else
 	{
