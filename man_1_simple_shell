@@ -1,0 +1,79 @@
+.TH man 1 "14 November 2020" "0.24" "simple_shell man page"
+.SH NAME
+.B simple_shell
+- A functioning simple shell.
+.SH SYNOPSIS
+.B #include "shell.h"
+.B #include "strings.h"
+.B bash [options] [file]
+.br
+\fBint lsh_help(char **args);\fR
+\fBint size_builtins(void);\fR
+\fBvoid lsh_loop(void);\fR
+\fBint lsh_execute(char **args);\fR
+\fBint lsh_launch(char **args);\fR
+\fBchar **_parse(char *line);\fR
+\fBchar *_read(void);\fR
+\fBint lsh_cd(char **args);\fR
+\fBint lsh_exit(char **args);\fR
+\fBint printenv(int ac, char **av, char **env);\fR
+\fBint env(int ac, char **av, char **env);\fR
+\fBint status(int ac, char **av);\fR
+\fBint forkwaitexec(void);\fR
+\fBint ppid(void);\fR
+\fBint pid(void);\fR
+\fBint _putchar(char c);\fR
+\fBint _getchar(void);\fR
+\fBvoid my_puts(char *s);\fR
+\fBint _strcmp(char *s1, char *s2);\fR
+\fBchar *_strcat(char *dest, char *src);\fR
+\fBchar *_strcpy(char *dest, char *src);\fR
+\fBint _strlen(char *s);\fR
+.br
+.SH DESCRIPTION
+The \fBsimple_shell\fR is a command language interpreter that executes commands read from the standard input or from a file.
+.br
+.SH OPTIONS
+.B None
+.br
+.SS
+.br
+.SS
+.B Examples
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+.br
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
+.br
+.SH Exit status
+simple_shell's exit status is the exit status of the last command executed in the script. If no commands are executed then the exit status is 0. First simple_shell attempts to open the file in the current working directory and if no file is found then simple_shell will search the directories in the PATH for the script.
+.br
+.SH CODE CONFORMS TO
+The
+.B Betty Standard
+.br
+.SH BUGS
+No known bugs.
+.br
+.SH SEE ALSO
+sh(1), ksh(1),
+csh(1), vi(1),
+readline(3)
+.br
+.SH AUTHORS
+\fBFinn Aspenson\fR,
+\fBKyle Whitten\fR
