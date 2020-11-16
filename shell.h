@@ -1,4 +1,4 @@
-#ifndef LIB_H
+#ifndef LIB_
 #define LIB_H
 
 #include <unistd.h>
