@@ -12,7 +12,7 @@ char *_read(void)
 
 	if (getline(&line, &buf, stdin) == -1)
 	{
-		if (feof(stdin))
+		if (getline(&line, &buf, stdin) == EOF)
 			exit(EXIT_SUCCESS);
 		else
 		{
