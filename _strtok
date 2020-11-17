@@ -4,32 +4,32 @@
 /**
 * _strtok - divides the string into tokens
 *
-*@str: string
-*@del: delimeter
+* @s: string
+* @del: delimeter
 *
 * Return: a pointer to the next token or NULL if there are no more tokens
 */
 
-char *_strtok(char *s, const char *del)
+/*char *_strtok(char *s, const char *del)
 {
 	static char *tok;
-	int i;
+	int i = *s++;
 
 	if (s == 0)
 		s = tok;
 	do {
-		if ((i = *s++) == '\0')
+		if (i == '\0')
 			return (0);
 	}
 	while (strchr(del, i))
-	s--;
+		s--;
 	tok = s + strcspn(s, del);
 	if (*tok != 0)
 		*tok++ = 0;
 	return (s);
 }
+*/
 
-/*
 char *_strtok(char *str, const char *del)
 {
 	int i = 0, len = _strlen(del);
@@ -39,7 +39,8 @@ char *_strtok(char *str, const char *del)
 		return (NULL);
 	if (str && !sp)
 		sp = str;
-char *p_start = sp;
+	char *p_start = sp;
+	
 	while (p_start)
 	{
 		for (i = 0; i < len; i++)
@@ -51,7 +52,7 @@ char *p_start = sp;
 		}
 	}
 	if (i == len)
-	{
+	{		
 		sp = p_start;
 		break;
 	}
@@ -77,4 +78,4 @@ char *p_start = sp;
 	}
 return (p_start);
 }
-*/
+
