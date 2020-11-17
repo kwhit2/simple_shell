@@ -1,0 +1,48 @@
+#include "shell.h"
+
+/**
+* _strtok - divides the string into tokens
+*
+* @str: string
+* @del: delimeter
+*
+* Return: a pointer to the next token or NULL if there are no more tokens
+*/
+
+char *_strtok(char *str, char *del)
+{
+static char *temp_ptr = NULL;
+char *final_ptr = NULL;
+static int flag = 0;
+int i, j;
+
+	if (del == NULL)
+		return (NULL);
+
+	if (flag == 1)
+		return (NULL);
+
+	if (str != NULL)
+		temp_ptr = str;
+
+final_ptr = temp_ptr;
+
+	for (i = 0; i <= _strlen(temp_ptr); i++)
+	{
+		for (j = 0; j < _strlen(del); j++)
+		{
+			if (temp_ptr[i] == '\0')
+			{
+				flag = 1;
+				return final_ptr;
+			}
+			if ((temp_ptr[i] == del[j]))
+			{
+				temp_ptr[i] = '\0';
+				temp_ptr += i+1;
+				return final_ptr;
+			}
+		}
+}
+return (NULL);
+}
