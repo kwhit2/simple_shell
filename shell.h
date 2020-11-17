@@ -11,6 +11,13 @@
 #include <string.h>
 #include <signal.h>
 
+/* string functions */
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
+char *_strtok(char *str, char *del);
+
 int lsh_help(char **args);
 int size_builtins(void);
 void lsh_loop(void);
@@ -29,6 +36,5 @@ int pid(void);
 int _putchar(char c);
 int _getchar(void);
 void my_puts(char *s);
-char *_strtok(char *str, char *del);
 
 #endif

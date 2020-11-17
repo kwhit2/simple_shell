@@ -1,5 +1,4 @@
-#ifndef LIB_H
-#define LIB_H
+#include "shell.h"
 
 /**
   * _strcmp - compares two strings
@@ -70,5 +69,3 @@ int _strlen(char *s)
 
 	return (ln);
 }
-
-#endif
