@@ -29,6 +29,6 @@ int pid(void);
 int _putchar(char c);
 int _getchar(void);
 void my_puts(char *s);
-char *_strtok(char *str, char *del);
+char *_strtok(char *str, const char *del);
 
 #endif
