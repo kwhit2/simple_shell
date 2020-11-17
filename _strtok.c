@@ -10,45 +10,71 @@
 * Return: a pointer to the next token or NULL if there are no more tokens
 */
 
-char *_strtok(char *str, char *del)
+char *_strtok(char *s, const char *del)
 {
-	static char *s;
-	static int pos;
-	int i = 0;
-	int begin = pos;
+	static char *tok;
+	int i;
 
-	if (!str || !del || str[pos] == '\0')
-		return (NULL);
-
-	if (str != NULL)
-		s = str;
-
-	while (s[pos] != '\0')
-	{
-		while (del[i] != '\0')
-		{
-			if (s[pos] == del[i])
-			{
-				s[pos] = '\0';
-				pos = pos + 1;
-
-				if (s[begin] != '\0')
-					return (&s[begin]);
-
-				else
-				{
-					begin = pos;
-					pos--;
-					break;
-				}
-			}
-			i++;
-		}
-		pos++;
+	if (s == 0)
+		s = tok;
+	do {
+		if ((i = *s++) == '\0')
+			return (0);
 	}
-	s[pos] = '\0';
-	if (s[begin] == '\0')
-		return (NULL);
-	else
-		return (&s[begin]);
+	while (strchr(del, i))
+	s--;
+	tok = s + strcspn(s, del);
+	if (*tok != 0)
+		*tok++ = 0;
+	return (s);
 }
+
+/*
+char *_strtok(char *str, const char *del)
+{
+	int i = 0, len = _strlen(del);
+	char *sp = NULL;
+
+	if (len == 0 || (!str && !sp))
+		return (NULL);
+	if (str && !sp)
+		sp = str;
+char *p_start = sp;
+	while (p_start)
+	{
+		for (i = 0; i < len; i++)
+		{
+			if (*p_start == del[i])
+			{
+				p_start++, break;
+			}
+		}
+	}
+	if (i == len)
+	{
+		sp = p_start;
+		break;
+	}
+	if (*sp == '\0')
+	{
+		sp = NULL;
+		return (sp);
+	}
+	while (*sp != '\0')
+	{
+		for (i = 0; i < len; i++)
+		{
+			if (*sp == del[i])
+			{
+				*sp = '\0';
+				break;
+			}
+		}
+	}
+	sp++;
+		if (i < len)
+			break;
+	}
+return (p_start);
+}
+*/
