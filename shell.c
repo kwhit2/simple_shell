@@ -17,7 +17,6 @@ void stop_ctrl(int s)
 * @av: argument
 * Return: Always 0.
 */
-
 int main(int ac, char **av)
 {
 	(void)ac;
@@ -34,7 +33,6 @@ int main(int ac, char **av)
 *
 * Return: arguments
 */
-
 void hsh_loop(void)
 {
 	char *line;
@@ -60,7 +58,6 @@ void hsh_loop(void)
 * @args: arguments
 * Return: 0
 */
-
 int hsh_launch(char **args)
 {
 	pid_t pid;
@@ -84,8 +81,7 @@ int hsh_launch(char **args)
 	{
 		do {
 			waitpid(pid, &stat, WUNTRACED);
-		}
-	while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
+		} while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
 	}
-return (1);
+	return (1);
 }

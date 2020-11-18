@@ -21,7 +21,6 @@ int (*builtin_func[]) (char **) = {
 *
 * Return: size of & contents of char *
 */
-
 int hsh_num_builtins(void)
 {
 	return ((sizeof(builtin_cmd)) / sizeof(char *));
@@ -34,7 +33,6 @@ int hsh_num_builtins(void)
 *
 * Return: 1
 */
-
 int hsh_help(char **args)
 {
 	int i;
@@ -54,7 +52,6 @@ int hsh_help(char **args)
   * @args: passed arguments
   * Return: launch
   */
-
 int hsh_execute(char **args)
 {
 	int i;

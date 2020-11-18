@@ -5,7 +5,6 @@
 *
 * Return: 0
 */
-
 int prompt(void)
 {
 	char *prompt = "$ ";
@@ -19,5 +18,5 @@ int prompt(void)
 		charactersRead = getline(&line, &linesize, stdin);
 		write(STDOUT_FILENO, line, charactersRead);
 	}
-return (0);
+	return (0);
 }

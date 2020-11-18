@@ -7,7 +7,6 @@
 *
 * Return: 1
 */
-
 int hsh_cd(char **args)
 {
 	if (args[1] == NULL)
@@ -27,7 +26,6 @@ int hsh_cd(char **args)
 *
 * Return: 0
 */
-
 int hsh_exit(char **args)
 {
 	(void)args;
