@@ -33,3 +33,22 @@ int lsh_exit(char **args)
 	(void)args;
 	return (0);
 }
+
+/**
+  * lsh_env - print environment
+  * @args: unused
+  * Return: always 0
+  */
+int lsh_env(char **args)
+{
+	int a = 0;
+	(void)args;
+
+	while (environ[a] != NULL)
+	{
+		write(STDOUT_FILENO, environ[a], _strlen(environ[a]));
+		write(STDOUT_FILENO, "\n", 1);
+		a++;
+	}
+	return (0);
+}

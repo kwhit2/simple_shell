@@ -5,13 +5,15 @@ int _strcmp(char *s1, char *s2);
 char *builtin_cmd[] = {
 	"cd",
 	"help",
-	"exit"
+	"exit",
+	"env"
 };
 
 int (*builtin_func[]) (char **) = {
 	&lsh_cd,
 	&lsh_help,
-	&lsh_exit
+	&lsh_exit,
+	&lsh_env
 };
 
 /**
