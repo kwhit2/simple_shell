@@ -63,15 +63,16 @@ void lsh_loop(void)
 
 int lsh_launch(char **args)
 {
-	pid_t pid, wpid;
+	pid_t pid;
 	int stat;
+	char *argv[] = {"/bin/ls", NULL};
 
 	pid = fork();
-	(void)wpid;
+	args = args;
 
 	if (pid == 0)
 	{
-		if (execvp(args[0], args) == -1)
+		if (execve(argv[0], argv, NULL) == -1)
 			perror("simple_shell");
 		exit(EXIT_FAILURE);
 	}
@@ -82,7 +83,7 @@ int lsh_launch(char **args)
 	else
 	{
 		do {
-			wpid = waitpid(pid, &stat, WUNTRACED);
+			waitpid(pid, &stat, WUNTRACED);
 		}
 	while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
 	}
