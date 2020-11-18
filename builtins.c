@@ -50,5 +50,5 @@ int lsh_env(char **args)
 		write(STDOUT_FILENO, "\n", 1);
 		a++;
 	}
-	return (0);
+	return (1);
 }
