@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
-* lsh_cd - CD built in
+* hsh_cd - CD built in
 *
 * @args: arguments
 *
 * Return: 1
 */
 
-int lsh_cd(char **args)
+int hsh_cd(char **args)
 {
 	if (args[1] == NULL)
 		fprintf(stderr, "No argument found\n");
@@ -21,25 +21,25 @@ int lsh_cd(char **args)
 }
 
 /**
-* lsh_exit - exit built in
+* hsh_exit - exit built in
 *
 * @args: arguments
 *
 * Return: 0
 */
 
-int lsh_exit(char **args)
+int hsh_exit(char **args)
 {
 	(void)args;
 	return (0);
 }
 
 /**
-  * lsh_env - print environment
+  * hsh_env - print environment
   * @args: unused
   * Return: always 0
   */
-int lsh_env(char **args)
+int hsh_env(char **args)
 {
 	int a = 0;
 	(void)args;

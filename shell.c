@@ -23,19 +23,19 @@ int main(int ac, char **av)
 	(void)ac;
 	(void)*av;
 	/* runs command loop */
-	lsh_loop();
+	hsh_loop();
 
 	return (EXIT_SUCCESS);
 }
 
 /**
-* lsh_loop - main shell loop
+* hsh_loop - main shell loop
 *
 *
 * Return: arguments
 */
 
-void lsh_loop(void)
+void hsh_loop(void)
 {
 	char *line;
 	char **args;
@@ -48,7 +48,7 @@ void lsh_loop(void)
 	_putchar(' ');
 	line = _read(); /* three main function calls */
 	args = _parse(line);
-	status = lsh_execute(args);
+	status = hsh_execute(args);
 
 	free(line);
 	free(args);
@@ -56,12 +56,12 @@ void lsh_loop(void)
 }
 
 /**
-* lsh_launch - launch function
+* hsh_launch - launch function
 * @args: arguments
 * Return: 0
 */
 
-int lsh_launch(char **args)
+int hsh_launch(char **args)
 {
 	pid_t pid;
 	int stat;
