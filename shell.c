@@ -1,5 +1,5 @@
 #include "shell.h"
-#include "strings.h"
+
 /**
   * stop_ctrl - prevent shell from closing with ctrl+c
   * @s: int

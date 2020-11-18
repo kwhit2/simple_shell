@@ -1,7 +1,7 @@
 #define _BUFSIZE 64
 #define _DELIM " \t\r\n\a"
 #include "shell.h"
-#include "strings.h"
+
 /**
   * _parse - parse given arguments
   * @line: given line
