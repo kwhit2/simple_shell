@@ -1,4 +1,4 @@
-#ifndef LIB_
+#ifndef LIB_H
 #define LIB_H
 
 #include <unistd.h>
@@ -39,5 +39,6 @@ int pid(void);
 int _putchar(char c);
 int _getchar(void);
 void my_puts(char *s);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 #endif

@@ -17,10 +17,11 @@ void stop_ctrl(int s)
 * @av: argument
 * Return: Always 0.
 */
-int main(int ac, char **av)
+int main(int ac, char **av, char **env)
 {
 	(void)ac;
 	(void)*av;
+	(void)*env;
 	/* runs command loop */
 	hsh_loop();
 
