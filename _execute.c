@@ -35,15 +35,12 @@ int hsh_num_builtins(void)
 */
 int hsh_help(char **args)
 {
-	int i;
-
 	my_puts("Finn Aspenson and Kyle Whitten's simple shell");
 	my_puts("Type command names and arguments, then hit enter");
 	my_puts("The following commands have been built in:\n");
-	for (i = 0; i < hsh_num_builtins(); i++)
-		my_puts(" %s\n", builtin_cmd[i]);
+	my_puts(" cd\n help\n exit\n env\n");
 	args = args;
-	printf("Use man command for more info.\n");
+	my_puts("Use man command for more info.\n");
 	return (1);
 }
 
