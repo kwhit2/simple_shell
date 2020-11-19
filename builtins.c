@@ -10,11 +10,11 @@
 int hsh_cd(char **args)
 {
 	if (args[1] == NULL)
-		fprintf(stderr, "No argument found\n");
+		perror("No argument found\n");
 	else
 	{
 		if (chdir(args[1]) != 0)
-			perror("hsh");
+			perror("hsh\n");
 	}
 	return (1);
 }
