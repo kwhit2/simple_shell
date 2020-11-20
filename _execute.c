@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int _strcmp(char *s1, char *s2);
+/*int _strcmp(char *s1, char *s2);
 
 char *builtin_cmd[] = {
 	"cd",
@@ -14,17 +14,17 @@ int (*builtin_func[]) (char **) = {
 	&hsh_help,
 	&hsh_exit,
 	&hsh_env
-};
+};*/
 
 /**
 * hsh_num_builtins - num built in
 *
 * Return: size of & contents of char *
 */
-int hsh_num_builtins(void)
+/*int hsh_num_builtins(void)
 {
 	return ((sizeof(builtin_cmd)) / sizeof(char *));
-}
+}*/
 
 /**
 * hsh_help - help built in
@@ -33,13 +33,12 @@ int hsh_num_builtins(void)
 *
 * Return: 1
 */
-int hsh_help(char **args)
+int hsh_help(void)
 {
 	my_puts("Finn Aspenson and Kyle Whitten's simple shell");
 	my_puts("Type command names and arguments, then hit enter");
 	my_puts("The following commands have been built in:\n");
 	my_puts(" cd\n help\n exit\n env\n");
-	args = args;
 	my_puts("Use man command for more info.\n");
 	return (1);
 }
@@ -51,19 +50,23 @@ int hsh_help(char **args)
   */
 int hsh_execute(char **args)
 {
-	int i;
+	pid_t my_pid;
+	int status, exec_stat;
 
-	if (args[0] == NULL)
-	{
-		return (1);
-	}
+	my_pid = fork();
 
-	for (i = 0; i < hsh_num_builtins(); i++)
+	if (my_pid == -1)
 	{
-		if (_strcmp(args[0], builtin_cmd[i]) == 0)
-		{
-			return ((*builtin_func[i])(args));
-		}
+		perror("Something went wrong :(\n");
+		exit(EXIT_FAILURE);
 	}
-	return (hsh_launch(args));
+	if (my_pid == 0)
+	{
+		exec_stat = execve(args[0], args, NULL);
+		if (exec_stat == -1)
+			return (-1);
+	}
+	else
+		wait(&status);
+	return (1);
 }

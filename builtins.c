@@ -7,6 +7,7 @@
 *
 * Return: 1
 */
+/*
 int hsh_cd(char **args)
 {
 	if (args[1] == NULL)
@@ -18,7 +19,7 @@ int hsh_cd(char **args)
 	}
 	return (1);
 }
-
+*/
 /**
 * hsh_exit - exit built in
 *
@@ -26,9 +27,8 @@ int hsh_cd(char **args)
 *
 * Return: 0
 */
-int hsh_exit(char **args)
+int hsh_exit(void)
 {
-	(void)args;
 	return (0);
 }
 
@@ -37,10 +37,9 @@ int hsh_exit(char **args)
   * @args: unused
   * Return: always 0
   */
-int hsh_env(char **args)
+int hsh_env(void)
 {
 	int a = 0;
-	(void)args;
 
 	while (environ[a] != NULL)
 	{

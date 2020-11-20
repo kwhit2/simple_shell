@@ -59,7 +59,7 @@ void hsh_loop(void)
 * @args: arguments
 * Return: 0
 */
-int hsh_launch(char **args)
+/*int hsh_launch(char **args)
 {
 	pid_t pid;
 	int stat;
@@ -85,4 +85,4 @@ int hsh_launch(char **args)
 		} while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
 	}
 	return (1);
-}
+}*/

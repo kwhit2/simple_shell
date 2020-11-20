@@ -69,3 +69,29 @@ int _strlen(char *s)
 
 	return (ln);
 }
+
+/**
+  * _strdup - duplicate string
+  * @str: string
+  * Return: pointer to duplicate
+  */
+char *_strdup(char *str)
+{
+	char *new;
+	unsigned int len, i;
+
+	if (str == NULL)
+		return (NULL);
+
+	for (len = 0; str[len] != '\0'; len++)
+		;
+
+	new = malloc(sizeof(char) * (len + 1));
+
+	if (new == NULL)
+		return (NULL);
+
+	for (i = 0; i <= len; i++)
+		new[i] = str[i];
+	return (new);
+}

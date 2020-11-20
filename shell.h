@@ -24,17 +24,18 @@ char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strtok(char *str, char *tokens);
+char *_strdup(char *str);
 
-int hsh_env(char **args);
-int hsh_help(char **args);
+int hsh_env(void);
+int hsh_help(void);
 int size_builtins(void);
 void hsh_loop(void);
 int hsh_execute(char **args);
 int hsh_launch(char **args);
 char **_parse(char *line);
 char *_read(void);
-int hsh_cd(char **args);
-int hsh_exit(char **args);
+/*int hsh_cd(char **args);*/
+int hsh_exit(void);
 int printenv(int ac, char **av, char **env);
 int env(int ac, char **av, char **env);
 int status(int ac, char **av);
@@ -45,5 +46,7 @@ int _putchar(char c);
 int _getchar(void);
 void my_puts(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char **search_path(char **args);
+int get_command(char **args);
 
 #endif
