@@ -1,4 +1,5 @@
 #include "shell.h"
+#include "hope"
 
 /*int _strcmp(char *s1, char *s2);
 
