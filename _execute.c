@@ -41,9 +41,9 @@ int hsh_help(char **args)
 	my_puts("Type command names and arguments, then hit enter");
 	my_puts("The following commands have been built in:\n");
 	for (i = 0; i < hsh_num_builtins(); i++)
-		my_puts(" %s\n", builtin_cmd[i]);
+		my_puts(" builtin_cmd[i]\n");
 	args = args;
-	printf("Use man command for more info.\n");
+	my_puts("Use man command for more info.\n");
 	return (1);
 }
 
