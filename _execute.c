@@ -9,7 +9,7 @@ char *builtin_cmd[] = {
 	"env"
 };
 
-int (*builtin_func[]) (char **) = {
+int (*builtin_func[]) (void) = {
 	&hsh_cd,
 	&hsh_help,
 	&hsh_exit,
@@ -33,7 +33,7 @@ int hsh_num_builtins(void)
 *
 * Return: 1
 */
-int hsh_help(char **args)
+int hsh_help(void)
 {
 	int i;
 
@@ -42,7 +42,6 @@ int hsh_help(char **args)
 	my_puts("The following commands have been built in:\n");
 	for (i = 0; i < hsh_num_builtins(); i++)
 		my_puts(" builtin_cmd[i]\n");
-	args = args;
 	my_puts("Use man command for more info.\n");
 	return (1);
 }

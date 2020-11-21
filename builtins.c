@@ -7,7 +7,7 @@
 *
 * Return: 1
 */
-/*
+
 int hsh_cd(char **args)
 {
 	if (args[1] == NULL)
@@ -19,7 +19,7 @@ int hsh_cd(char **args)
 	}
 	return (1);
 }
-*/
+
 /**
 * hsh_exit - exit built in
 *
