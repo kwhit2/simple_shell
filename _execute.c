@@ -3,14 +3,14 @@
 int _strcmp(char *s1, char *s2);
 
 char *builtin_cmd[] = {
-	"cd",
+	/*"cd",*/
 	"help",
 	"exit",
 	"env"
 };
 
 int (*builtin_func[]) (void) = {
-	&hsh_cd,
+	/*&hsh_cd,*/
 	&hsh_help,
 	&hsh_exit,
 	&hsh_env

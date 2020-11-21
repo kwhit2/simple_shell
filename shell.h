@@ -34,7 +34,7 @@ int hsh_execute(char **args);
 int hsh_launch(char **args);
 char **_parse(char *line);
 char *_read(void);
-int hsh_cd(char **args);
+/*t hsh_cd(char **args);*/
 int hsh_exit(void);
 int printenv(int ac, char **av, char **env);
 int env(int ac, char **av, char **env);
