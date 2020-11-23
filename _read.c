@@ -7,18 +7,38 @@
 
 char *_read(void)
 {
-	char *line = NULL;
-	size_t buf = 0;
+	int bufsize = _BUF_;
+	int pos = 0, c;
+	char *buffer = malloc(sizeof(char) * bufsize);
 
-	if (getline(&line, &buf, stdin) == -1)
+	if (!buffer)
 	{
-		if (getline(&line, &buf, stdin) == EOF)
-			exit(EXIT_SUCCESS);
-		else
+		perror("allocation error\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	while (1)
+	{
+		c = _getchar();
+
+		if (c == EOF || c == '\n')
 		{
-			perror("Could not read line");
-			exit(EXIT_FAILURE);
+			buffer[pos] = '\0';
+			return (buffer);
+		}
+		else
+			buffer[pos] = c;
+		pos++;
+
+		if (pos >= bufsize)
+		{
+			bufsize += _BUF_;
+			buffer = _realloc(buffer, bufsize, bufsize);
+			if (!buffer)
+			{
+				perror("allocation error\n");
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
-	return (line);
 }
