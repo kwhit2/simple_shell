@@ -40,19 +40,24 @@ void hsh_loop(void)
 	char *line;
 	char **args;
 	int status;
+	(void)status;
 
 	signal(SIGINT, stop_ctrl);
 
-	do {
-	_putchar('$');
-	_putchar(' ');
+	while (1)
+	{
+	if (isatty(STDIN_FILENO))
+	{
+		_putchar('$');
+		_putchar(' ');
+	}
 	line = _read(); /* three main function calls */
 	args = _parse(line);
-	status = hsh_execute(args);
+	status = hsh_execute(line, args);
 
 	free(line);
 	free(args);
-	} while (status);
+	}
 }
 
 /**
@@ -64,7 +69,9 @@ int hsh_launch(char **args)
 {
 	pid_t pid;
 	int stat;
-	char *argv[] = {"/bin/ls", NULL};
+	char *argv[1024];
+	argv[0] = args[0];
+	argv[1] = NULL;
 
 	pid = fork();
 	args = args;

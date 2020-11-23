@@ -5,14 +5,14 @@ int _strcmp(char *s1, char *s2);
 char *builtin_cmd[] = {
 	/*"cd",*/
 	"help",
-	"exit",
+	/*"exit",*/
 	"env"
 };
 
 int (*builtin_func[]) (char **) = {
 	/*&hsh_cd,*/
 	&hsh_help,
-	&hsh_exit,
+	/*&hsh_exit,*/
 	&hsh_env
 };
 
@@ -50,7 +50,7 @@ int hsh_help(char **args)
   * @args: passed arguments
   * Return: launch
   */
-int hsh_execute(char **args)
+int hsh_execute(char *line, char **args)
 {
 	int i;
 
@@ -61,10 +61,14 @@ int hsh_execute(char **args)
 
 	for (i = 0; i < hsh_num_builtins(); i++)
 	{
-		if (_strcmp(args[0], builtin_cmd[i]) == 0)
+		if (_strcmp(args[0], "exit") == 0)
 		{
-			return (((*builtin_func[i])(args)));
+			free(line);
+			free(args);
+			exit(EXIT_SUCCESS);
 		}
+		if (_strcmp(args[0], builtin_cmd[i]) == 0)
+			return (((*builtin_func[i])(args)));
 	}
 	return (hsh_launch(args));
 }

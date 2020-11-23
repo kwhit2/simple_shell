@@ -30,7 +30,7 @@ int hsh_cd(char **args)
 int hsh_exit(char **args)
 {
 	args = args;
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 /**
