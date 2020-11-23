@@ -15,6 +15,7 @@ void stop_ctrl(int s)
 * main - main shell.c file
 * @ac: argument count
 * @av: argument
+* @env: env variable
 * Return: Always 0.
 */
 int main(int ac, char **av, char **env)
