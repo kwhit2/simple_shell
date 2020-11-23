@@ -26,7 +26,7 @@ int main(int ac, char **av, char **env)
 	/* runs command loop */
 	hsh_loop();
 
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 /**

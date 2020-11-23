@@ -42,5 +42,5 @@ void my_puts(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **search_path(char **args);
 int get_command(char **args);
-void prompt(int fd, struct stat buf);
+
 #endif
