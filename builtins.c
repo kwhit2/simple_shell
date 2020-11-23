@@ -41,6 +41,7 @@ int hsh_exit(char **args)
 int hsh_env(char **args)
 {
 	int a = 0;
+
 	args = args;
 	while (environ[a] != NULL)
 	{
