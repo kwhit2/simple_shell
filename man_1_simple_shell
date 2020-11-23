@@ -4,34 +4,37 @@
 - A functioning simple shell.
 .SH SYNOPSIS
 .B #include "shell.h"
-.B #include "strings.h"
 .B bash [options] [file]
 .br
-\fBint lsh_help(char **args);\fR
+\fBextern char **environ;\fR
+
+\fBchar *_strcpy(char *dest, char *src);\fR
+\fBchar *_strcat(char *dest, char *src);\fR
+\fBint _strlen(char *s);\fR
+\fBint _strcmp(char *s1, char *s2);\fR
+\fBchar *_strtok(char *str, char *tokens);\fR
+\fBchar *_strdup(char *str);\fR
+
+\fBint hsh_env(char **args);\fR
+\fBint hsh_help(char **args);\fR
 \fBint size_builtins(void);\fR
-\fBvoid lsh_loop(void);\fR
-\fBint lsh_execute(char **args);\fR
-\fBint lsh_launch(char **args);\fR
+\fBvoid hsh_loop(void);\fR
+\fBint hsh_execute(char *line, char **args);\fR
+\fBint hsh_launch(char **args);\fR
 \fBchar **_parse(char *line);\fR
 \fBchar *_read(void);\fR
-\fBint lsh_cd(char **args);\fR
-\fBint lsh_exit(char **args);\fR
-\fBint printenv(int ac, char **av, char **env);\fR
-\fBint env(int ac, char **av, char **env);\fR
-\fBint status(int ac, char **av);\fR
-\fBint forkwaitexec(void);\fR
-\fBint ppid(void);\fR
-\fBint pid(void);\fR
+\fBint hsh_cd(char **args);\fR
+\fBint hsh_exit(char **args);\fR
 \fBint _putchar(char c);\fR
 \fBint _getchar(void);\fR
 \fBvoid my_puts(char *s);\fR
-\fBint _strcmp(char *s1, char *s2);\fR
-\fBchar *_strcat(char *dest, char *src);\fR
-\fBchar *_strcpy(char *dest, char *src);\fR
-\fBint _strlen(char *s);\fR
+\fBvoid *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);\fR
 .br
 .SH DESCRIPTION
-The \fBsimple_shell\fR is a command language interpreter that executes commands read from the standard input or from a file.
+The \fBsimple_shell\fR is a command language interpreter that executes
+commands read from the standard input. \fBsimple_shell\fR reads,
+parses then executes the command if it is a builtin command. If the user wants
+to type in a non-builtin command they will have to input the full PATH name.
 .br
 .SH OPTIONS
 .B None
@@ -60,7 +63,11 @@ hsh main.c shell.c test_ls_2
 $
 .br
 .SH Exit status
-simple_shell's exit status is the exit status of the last command executed in the script. If no commands are executed then the exit status is 0. First simple_shell attempts to open the file in the current working directory and if no file is found then simple_shell will search the directories in the PATH for the script.
+\fBsimple_shell\fR's exit status is the exit status of the last command executed in
+the script. If no commands are executed then the exit status is 0.
+First simple_shell attempts to open the file in the current working directory
+and if no file is found then simple_shell will search the directories in the
+PATH for the script.
 .br
 .SH CODE CONFORMS TO
 The
@@ -77,3 +84,7 @@ readline(3)
 .SH AUTHORS
 \fBFinn Aspenson\fR,
 \fBKyle Whitten\fR
+\fBValerie Nierenberg\fR
+\fBSang Nguyen\fR
+\fBColson Scott\fR
+\fBKelsie Merchant\fR
