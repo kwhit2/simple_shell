@@ -27,8 +27,9 @@ int hsh_cd(char **args)
 *
 * Return: 0
 */
-int hsh_exit(void)
+int hsh_exit(char **args)
 {
+	args = args;
 	return (0);
 }
 
@@ -37,10 +38,10 @@ int hsh_exit(void)
   * @args: unused
   * Return: always 0
   */
-int hsh_env(void)
+int hsh_env(char **args)
 {
 	int a = 0;
-
+	args = args;
 	while (environ[a] != NULL)
 	{
 		write(STDOUT_FILENO, environ[a], _strlen(environ[a]));

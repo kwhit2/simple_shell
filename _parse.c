@@ -40,6 +40,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 /**
   * parse_helper - assist in parsing process
   */
+/*
 char **search_path(char **args)
 {
 	int i = 0;
@@ -78,7 +79,7 @@ char **search_path(char **args)
 	chdir(cwd);
 	return (args);
 }
-
+*/
 /**
   * _parse - parse the line that was read
   * @line: given line
@@ -86,25 +87,35 @@ char **search_path(char **args)
   */
 char **_parse(char *line)
 {
-	char *token, **args = malloc(sizeof(char) * _BUFSIZE);
-	int i = 0;
+	int buf = _BUFSIZE, pos = 0;
+	char **toks = malloc(buf * sizeof(char *));
+	char *tok;
 
-	token = strtok(line, " ");
-	if (token == NULL)
-		exit(EXIT_FAILURE);
-	
-	token = strtok(line, " ");
-	while (token != NULL)
+	if (!toks)
 	{
-		args[i] = _strdup(token);
-		token = strtok(NULL, " ");
-		i++;
+		perror("allocation error\n");
+		exit(EXIT_FAILURE);
 	}
-	get_command(args);
-	search_path(args);
-	args[i] = NULL;
+	tok = strtok(line, _DELIM);
 
-	return (args);
+	while (tok != NULL)
+	{
+		toks[pos] = tok;
+		pos++;
+		if (pos >= buf)
+		{
+			buf += _BUFSIZE;
+			toks = _realloc(toks, buf * sizeof(char *), buf * sizeof(char *));
+			if (!toks)
+			{
+				perror("allocation error\n");
+				exit(EXIT_FAILURE);
+			}
+		}
+		tok = strtok(NULL, _DELIM);
+	}
+	toks[pos] = NULL;
+	return (toks);
 }
 
 /**
@@ -112,6 +123,7 @@ char **_parse(char *line)
   * @test: ???
   * Return: funtion
   */
+/*
 int get_command(char **args)
 {
 	int i;
@@ -121,7 +133,7 @@ int get_command(char **args)
 		{"exit", hsh_exit},
 		{"env", hsh_env},
 		{"help", hsh_help},
-		/*{"cd", hsh_cd},*/
+		{"cd", hsh_cd},
 		{NULL, NULL}
 	};
 
@@ -134,4 +146,4 @@ int get_command(char **args)
 		}
 	}
 	return (1);
-}
+}*/

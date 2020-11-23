@@ -3,14 +3,14 @@
 int _strcmp(char *s1, char *s2);
 
 char *builtin_cmd[] = {
-	"cd",
+	/*"cd",*/
 	"help",
 	"exit",
 	"env"
 };
 
-int (*builtin_func[]) (void) = {
-	&hsh_cd,
+int (*builtin_func[]) (char **) = {
+	/*&hsh_cd,*/
 	&hsh_help,
 	&hsh_exit,
 	&hsh_env
@@ -33,15 +33,14 @@ int hsh_num_builtins(void)
 *
 * Return: 1
 */
-int hsh_help(void)
+int hsh_help(char **args)
 {
-	int i;
+	args = args;
 
 	my_puts("Finn Aspenson and Kyle Whitten's simple shell");
 	my_puts("Type command names and arguments, then hit enter");
 	my_puts("The following commands have been built in:\n");
-	for (i = 0; i < hsh_num_builtins(); i++)
-		my_puts(" builtin_cmd[i]\n");
+	my_puts(" cd\n help\n exit\n env\n");
 	my_puts("Use man command for more info.\n");
 	return (1);
 }
@@ -64,7 +63,7 @@ int hsh_execute(char **args)
 	{
 		if (_strcmp(args[0], builtin_cmd[i]) == 0)
 		{
-			return ((*builtin_func[i])(args));
+			return (((*builtin_func[i])(args)));
 		}
 	}
 	return (hsh_launch(args));
