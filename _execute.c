@@ -48,6 +48,7 @@ int hsh_help(char **args)
 /**
   * hsh_execute - execute
   * @args: passed arguments
+  * @line: line/arguments passed from _read
   * Return: launch
   */
 int hsh_execute(char *line, char **args)
