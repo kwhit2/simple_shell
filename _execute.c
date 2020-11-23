@@ -40,7 +40,9 @@ int hsh_help(char **args)
 	my_puts("Finn Aspenson and Kyle Whitten's simple shell");
 	my_puts("Type command names and arguments, then hit enter");
 	my_puts("The following commands have been built in:\n");
-	my_puts(" cd\n help\n exit\n env\n");
+	my_puts(" help - display shell bio and commands");
+	my_puts(" env - print the environment");
+	my_puts(" exit - leave shell");
 	my_puts("Use man command for more info.\n");
 	return (1);
 }
