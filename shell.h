@@ -12,12 +12,6 @@
 #include <signal.h>
 
 extern char **environ;
-/*
-typedef struct bin {
-	char *name;
-	int (*func)(void);
-} builtin;
-*/
 /* string functions */
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
