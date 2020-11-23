@@ -70,7 +70,11 @@ int hsh_launch(char **args)
 	pid_t pid;
 	int stat;
 	char *argv[1024];
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 12ea75837e69872e6602d3a951b2505b9edd86cf
 	argv[0] = args[0];
 	argv[1] = NULL;
 
