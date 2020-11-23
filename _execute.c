@@ -66,9 +66,12 @@ int hsh_execute(char *line, char **args)
 	{
 		if (_strcmp(args[0], "exit") == 0)
 		{
-			free(line);
-			free(args);
-			exit(EXIT_SUCCESS);
+			if (isatty(STDIN_FILENO))
+			{
+				free(line);
+				free(args);
+				exit(EXIT_SUCCESS);
+			}
 		}
 		if (_strcmp(args[0], builtin_cmd[i]) == 0)
 			return (((*builtin_func[i])(args)));
