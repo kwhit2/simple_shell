@@ -63,14 +63,14 @@ int hsh_execute(char *line, char **args)
 		return (1);
 	}
 
+	if (_strcmp(args[0], ex) == 0)
+	{
+		free(line);
+		free(args);
+		exit(0);
+	}
 	for (i = 0; i < hsh_num_builtins(); i++)
 	{
-		if (_strcmp(args[0], ex) == 0)
-		{
-			free(line);
-			free(args);
-			exit(0);
-		}
 		if (_strcmp(args[0], builtin_cmd[i]) == 0)
 			return (((*builtin_func[i])(args)));
 	}
