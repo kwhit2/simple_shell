@@ -1,5 +1,11 @@
 #include "shell.h"
-
+/**
+* _strcmp - string compare function prototype
+* @s1: string 1 to be compared
+* @s2: string 2 to be compared
+*
+* Return: void protoype for purposes commented below
+*/
 int _strcmp(char *s1, char *s2); /*This is here because it removes an error*/
 
 char *builtin_cmd[] = {
