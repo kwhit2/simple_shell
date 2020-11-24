@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int _strcmp(char *s1, char *s2);
+int _strcmp(char *s1, char *s2); /*This is here because it removes an error*/
 
 char *builtin_cmd[] = {
 	/*"cd",*/
