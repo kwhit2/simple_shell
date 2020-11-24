@@ -21,7 +21,7 @@ int hsh_cd(char **args)
 }
 
 /**
-* hsh_exit - exit built in
+* hsh_exit - exit built in (currently missing 1 outputcheck for unknown reason)
 *
 * @args: arguments
 *
