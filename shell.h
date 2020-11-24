@@ -34,5 +34,6 @@ int _putchar(char c);
 int _getchar(void);
 void my_puts(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-
+int hsh_setenv(char **args);
+int hsh_unsetenv(char **args);
 #endif

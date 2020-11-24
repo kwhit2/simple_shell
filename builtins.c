@@ -51,3 +51,25 @@ int hsh_env(char **args)
 	}
 	return (1);
 }
+
+/**
+* hsh_setenv - set env
+*@args: arguments
+* Return: void
+*/
+int hsh_setenv(char **args)
+{
+	args = args;
+	return (0);
+}
+
+/**
+* hsh_unsetenv - unset env
+*@args: arguments
+* Return: void
+*/
+int hsh_unsetenv(char **args)
+{
+	args = args;
+	return (0);
+}

@@ -6,14 +6,18 @@ char *builtin_cmd[] = {
 	/*"cd",*/
 	"help",
 	/*"exit",*/
-	"env"
+	"env",
+	"setenv",
+	"unsetenv"
 };
 
 int (*builtin_func[]) (char **) = {
 	/*&hsh_cd,*/
 	&hsh_help,
 	/*&hsh_exit,*/
-	&hsh_env
+	&hsh_env,
+	&hsh_setenv,
+	&hsh_unsetenv
 };
 
 /**
