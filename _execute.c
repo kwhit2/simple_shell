@@ -52,7 +52,7 @@ int hsh_help(char **args)
 }
 
 /**
-  * hsh_execute - execute
+  * hsh_execute - execute / this is really just searching if it a builtin
   * @args: passed arguments
   * @line: line/arguments passed from _read
   * Return: launch
